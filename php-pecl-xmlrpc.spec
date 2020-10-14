@@ -21,6 +21,7 @@ URL:		https://www.php.net/manual/en/book.xmlrpc.php
 %{?with_tests:BuildRequires:    %{php_name}-cli}
 BuildRequires:	%{php_name}-devel >= 4:8.0.0
 BuildRequires:	rpmbuild(macros) >= 1.666
+BuildRequires:	xmlrpc-epi-devel >= 0.54.1
 %if %{with tests}
 BuildRequires:	%{php_name}-cli
 BuildRequires:	%{php_name}-pcre
@@ -40,10 +41,14 @@ Moduł PHP dodający obsługę XMLRPC.
 %setup -qc
 mv pecl-networking-%{modname}-*/* .
 
+%{__sed} -i -e '/PHP_ADD_LIBRARY_WITH_PATH/s#xmlrpc,#xmlrpc-epi,#' config.m4
+
 %build
+export CPPFLAGS="%{rpmcppflags} -I%{_includedir}/xmlrpc-epi"
+
 phpize
 %configure \
-	--with-zlib-dir=shared,/usr \
+	--with-xmlrpc=shared,/usr \
 
 %{__make}
 
