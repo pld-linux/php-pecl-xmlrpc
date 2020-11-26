@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_without	tests		# build without tests
 
-%define		rel		1
+%define		rel		2
 %define		commit	1ed83f2
 %define		php_name	php%{?php_suffix}
 %define		modname	xmlrpc
