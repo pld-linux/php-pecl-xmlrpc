@@ -72,6 +72,9 @@ Bug #40576 (double values are truncated to 6 decimal digits when encoding) [test
 Bug #45555 (Segfault with invalid non-string as register_introspection_callback) [tests/bug45555.phpt]
 Bug #45556 (Return value from callback isn't freed) [tests/bug45556.phpt]
 Bug #77242 (heap out of bounds read in xmlrpc_decode()) [tests/bug77242.phpt]
+%ifarch %{ix86}
+Bug #40576 (double values are truncated to 6 decimal digits when encoding) [tests/bug40576.phpt]
+%endif
 EOF
 
 %build
