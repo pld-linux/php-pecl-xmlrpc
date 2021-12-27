@@ -21,8 +21,8 @@ URL:		https://www.php.net/manual/en/book.xmlrpc.php
 BuildRequires:	%{php_name}-devel >= 4:8.0.0
 BuildRequires:	rpmbuild(macros) >= 1.666
 BuildRequires:	xmlrpc-epi-devel >= 0.54.1
-%if %{with tests}
 BuildRequires:	%{php_name}-cli
+%if %{with tests}
 BuildRequires:	%{php_name}-pcre
 %endif
 %{?requires_php_extension}
