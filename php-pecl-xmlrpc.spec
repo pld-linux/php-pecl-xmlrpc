@@ -2,21 +2,20 @@
 # Conditional build:
 %bcond_without	tests		# build without tests
 
-%define		rel		2
-%define		commit	1ed83f2
+%define		rel		1
+%define		subver	RC3
 %define		php_name	php%{?php_suffix}
 %define		modname	xmlrpc
 Summary:	xmlrpc extension module for PHP
 Summary(pl.UTF-8):	Moduł xmlrpc dla PHP
 Name:		%{php_name}-pecl-%{modname}
 Version:	1.0.0
-Release:	0.%{rel}.%{commit}
+Release:	1.%{subver}.%{rel}
 License:	PHP 3.01
 Group:		Development/Languages/PHP
-# http://git.php.net/?p=pecl/networking/xmlrpc.git
 # https://github.com/php/pecl-networking-xmlrpc
-Source0:	https://github.com/php/pecl-networking-xmlrpc/archive/%{commit}/php-pecl-%{modname}-%{version}-%{commit}.tar.gz
-# Source0-md5:	db89c3183934c874f4a242e184439d5c
+Source0:	https://github.com/php/pecl-networking-xmlrpc/archive/refs/tags/xmlrpc-%{version}%{subver}.tar.gz
+# Source0-md5:	f361711d8cf03080412c9680aa65f021
 URL:		https://www.php.net/manual/en/book.xmlrpc.php
 %{?with_tests:BuildRequires:    %{php_name}-cli}
 BuildRequires:	%{php_name}-devel >= 4:8.0.0
